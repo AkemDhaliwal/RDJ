@@ -26,8 +26,12 @@
 					alert("Position must be filled out");
 					return false;
 				}
+                var x = document.forms["myForm"]["password"].value;
+				if (x == "") {
+					alert("Password must be filled out");
+					return false;
+				}
                 document.getElementById("button").style.color = "red";
-                document.getElementById("message").innerHTML = "scan your finger";
             }
 		</script>
     </head>
@@ -95,13 +99,13 @@
               <p>
                 <label>
                     <input name="position" id="position" name="group1" type="radio" value=1 unchecked />
-                    <span>Sheeter</span>
+                    <span>Sheeter Operator</span>
                 </label>
               </p>
               <p>
                 <label>
                     <input name="position" id="position" name="group1" type="radio" value=2 unchecked />
-                    <span>Mixer</span>
+                    <span>Mixer Operator</span>
                 </label>
              </p>
              <p>
@@ -131,7 +135,7 @@
              <p>
                 <label>
                     <input name="position" id="position" name="group1" type="radio" value=7 unchecked />
-                    <span>Maintainence</span>
+                    <span>Maintenance</span>
                 </label>
               </p>
              <p>
@@ -172,6 +176,13 @@
               </p>
             </div>
             <div class="input-field col s3"></div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3"></div>
+            <div class="input-field col s6">
+              <input name="password" id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
         </div>
         <div class="row">
         <div class="input-field col s3"></div>

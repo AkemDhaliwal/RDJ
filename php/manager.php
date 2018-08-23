@@ -1,7 +1,7 @@
 <?php
 session_start();
 	
-	if (isset($_SESSION['id'] )& ($_SESSION['position'] == 3)) {
+	if (isset($_SESSION['id'] )& ($_SESSION['position'] == 13)) {
 
 		require_once "../manager.html";
 		

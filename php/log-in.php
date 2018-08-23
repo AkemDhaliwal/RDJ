@@ -2,56 +2,38 @@
     session_start();
     set_time_limit(100);
     require_once __DIR__ . '/employee_info.php';   
-        
+    
+    $id = $_POST['id'];    
+    $password  = $_POST['password']; 
+
     $user = new employee();
 
-    $user->SetCmd(3);
-                
-    sleep(5);
-    $flag_1 = false;
-    $count = 0;
-    while(($flag_1 == false) and ($count < 60))
-    {
-        set_time_limit(10);
-        sleep(1);
-        $row = $user->getValidUser();
-        if ($row != false)
-        {
-            $info = json_decode($row);
-            if($info->id > 0)
-            {
-                $flag_1 = true;
-            }
-        } 
+    $info = json_decode($user->GetPswd($id));
 
-        else if($user->CheckCmd() == true)
-        {
-            $count = 60;
-        }
-        $count++;
-    }
+    $flag_1 = password_verify($password, $info->Password);
 
     if($flag_1 == true)
     {
-            $_SESSION['id'] = $info->id;
-			$_SESSION['position'] = $info->position;
-        if($info->position == 1)
+            $_SESSION['id'] = $id;
+			$_SESSION['position'] = $info->Position;
+            $_SESSION['password'] = $password;
+            $_SESSION['name'] = $info->Name;
+        if($info->position < 10)
         {
             echo "<script type='text/javascript'>location.href = 'member.php';</script>";
         }
-        else if($info->position == 2)
+        else if($info->position >9 && $info->position <13)
         {
             echo "<script type='text/javascript'>location.href = 'supervisor.php';</script>";
         }
-        else if($info->position == 3)
+        else if($info->position == 13)
         {
             echo "<script type='text/javascript'>location.href = 'manager.php';</script>";
         }
     }
     else
     {     
-        $user->SetCmd(0);
-        echo "<h2>No Finger detected or invalid user</h2>";
+        echo "<h2>Invalid Password or ID</h2>";
         echo "<p> Click here <a href='../login.html'>here</a> to try again </p>";
     }
 ?>
