@@ -10,30 +10,38 @@
 
     $info = json_decode($user->GetPswd($id));
 
-    $flag_1 = password_verify($password, $info->Password);
-
-    if($flag_1 == true)
+    if($info != null)
     {
-            $_SESSION['id'] = $id;
-			$_SESSION['position'] = $info->Position;
-            $_SESSION['password'] = $password;
-            $_SESSION['name'] = $info->Name;
-        if($info->position < 10)
+        $flag_1 = password_verify($password, $info->Password);
+
+        if($flag_1 == true)
         {
-            echo "<script type='text/javascript'>location.href = 'member.php';</script>";
+                $_SESSION['id'] = $id;
+                $_SESSION['position'] = $info->Position;
+                $_SESSION['password'] = $password;
+                $_SESSION['name'] = $info->Name;
+            if($info->Position < 10)
+            {
+                echo "<script type='text/javascript'>location.href = 'member.php';</script>";
+            }
+            else if($info->Position >9 && $info->Position <13)
+            {
+                echo "<script type='text/javascript'>location.href = 'supervisor.php';</script>";
+            }
+            else if($info->Position == 13)
+            {
+                echo "<script type='text/javascript'>location.href = 'manager.php';</script>";
+            }
         }
-        else if($info->position >9 && $info->position <13)
-        {
-            echo "<script type='text/javascript'>location.href = 'supervisor.php';</script>";
-        }
-        else if($info->position == 13)
-        {
-            echo "<script type='text/javascript'>location.href = 'manager.php';</script>";
+        else
+        {     
+            echo "<h2>Invalid Password or ID</h2>";
+            echo "<p> Click here <a href='../login.html'>here</a> to try again </p>";
         }
     }
     else
-    {     
-        echo "<h2>Invalid Password or ID</h2>";
-        echo "<p> Click here <a href='../login.html'>here</a> to try again </p>";
+    {
+            echo "<h2>Invalid ID</h2>";
+            echo "<p> Click here <a href='../login.html'>here</a> to try again </p>";
     }
 ?>

@@ -38,7 +38,7 @@
 
     <nav>
       <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo">Smart Training System</a>
+        <a href="#!" class="brand-logo">RDJ Bakeries</a>
         <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="manager.php">Home</a></li>
@@ -65,7 +65,7 @@
         <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
-              <label for="position">Training required for: </label>
+                <label for="position"><font color="black"><b>Training required for:</b></font> </label>
             </div>
             <div class="input-field col s3"></div>
         </div>
@@ -74,20 +74,80 @@
             <div class="input-field col s6">
                 <p>
                   <label>
-                    <input id="operator" name="operator" type="checkbox" />
-                    <span>Operator</span>
+                    <input id="SheeterOperator" name="SheeterOperator" type="checkbox" />
+                    <span>Sheeter Operator</span>
                   </label>
                 </p>
                 <p>
                   <label>
-                    <input id="supervisor" name="supervisor" type="checkbox" />
-                    <span>Supervisor</span>
+                    <input id="MixerOperator" name="MixerOperator" type="checkbox" />
+                    <span>Mixer Operator</span>
                   </label>
                 </p>
                 <p>
                   <label>
-                    <input id="manager" name="manager" type="checkbox" />
-                    <span>Manager</span>
+                    <input id="OvenOperator" name="OvenOperator" type="checkbox" />
+                    <span>Oven Operator</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Packer" name="Packer" type="checkbox" />
+                    <span>Packer</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="TeamLead" name="TeamLead" type="checkbox" />
+                    <span>Team Lead</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="LineOperator" name="LineOperator" type="checkbox" />
+                    <span>Line Operator</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Maintenance" name="Maintenance" type="checkbox" />
+                    <span>Maintenance</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Shipping/Reciving" name="Shipping/Reciving" type="checkbox" />
+                    <span>Shipping/Reciving</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="ForkliftOperator" name="ForkliftOperator" type="checkbox" />
+                    <span>Forklift Operator</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Supervisor(Bake-end)" name="Supervisor(Bake-end)" type="checkbox" />
+                    <span>Supervisor(Bake-end)</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Supervisor(Packing)" name="Supervisor(Packing)" type="checkbox" />
+                    <span>Supervisor(Packing)</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="Supervisor(Wearhouse)" name="Supervisor(Wearhouse)" type="checkbox" />
+                    <span>Supervisor(Wearhouse)</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input id="TrainingManager" name="TrainingManager" type="checkbox" />
+                    <span>Training Manager</span>
                   </label>
                 </p>
             </div>
@@ -97,13 +157,14 @@
         <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
+                <font color="red"><b>NOTE:</b> Make sure the file name does not include any spaces</font>
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>File</span>
                     <input type="file" name="file" id="file" size="50" />
                   </div>
                   <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload pdf file">
+                    <input class="file-path validate" type="text" placeholder="Upload pdf file only">
                   </div>
                 </div>
             </div>
